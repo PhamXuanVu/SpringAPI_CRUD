@@ -1,0 +1,38 @@
+spring:
+  profiles:
+    active: qa
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 123456
+    url: jdbc:mysql://localhost:3306/employees_db
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+welcome:
+  message: 'welcome to dev'
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 123456
+    url: jdbc:mysql://localhost:3306/employees_db1
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+welcome:
+  message: 'welcome to qa'
