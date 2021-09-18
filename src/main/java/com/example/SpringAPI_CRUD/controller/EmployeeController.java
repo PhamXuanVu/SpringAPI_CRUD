@@ -5,6 +5,7 @@ import com.example.SpringAPI_CRUD.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -13,12 +14,8 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    public EmployeeService getEmployeeService() {
-        return employeeService;
-    }
-
     @PostMapping("/employees")
-    public Employee saveEmployee(@RequestBody Employee employee){
+    public Employee saveEmployee(@Valid @RequestBody Employee employee){
         return employeeService.saveEmployee(employee);
     }
     @GetMapping("/employees")
